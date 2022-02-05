@@ -1,0 +1,6 @@
+*.log
+*.ini
+images/*.log
+images/*.ini
+videos/*.log
+videos/*.ini
