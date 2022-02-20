@@ -1,0 +1,430 @@
+Delivered-To: bala@designed4cloud.com
+Received: by 2002:a92:84cf:0:0:0:0:0 with SMTP id y76csp3009653ilk;
+        Sat, 11 Jan 2020 20:37:33 -0800 (PST)
+X-Received: by 2002:aa7:988e:: with SMTP id r14mr13729474pfl.126.1578803613574;
+        Sat, 11 Jan 2020 20:33:33 -0800 (PST)
+X-Google-Smtp-Source: APXvYqxr5OsgmfrB35rdvpdhUdKOF1Llg6RVNmVUHuGh+7I9yb4lTulKnDbru0mHm5YwdvAkgchR
+X-Received: by 2002:aa7:988e:: with SMTP id r14mr13729407pfl.126.1578803612311;
+        Sat, 11 Jan 2020 20:33:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578803612; cv=none;
+        d=google.com; s=arc-20160816;
+        b=aRLEaCthZZ5JngUOTBFs66haqCj9vxOgXPc5ysqLUEqGpFT2In28qP6z/YEMKK9VHY
+         W9hrr9e2IvaGWBSNazVGR6xouiXiTq7P5y8aToBQ01xHwiRGIGOkAAMm2+nRnaLVr+BK
+         eX2kH6CfrqLpvJHZHvHeFOxahgTwyE2vJ1b/XUwpSA9QpRTdouEY6bpLsHDUuSxIOI/b
+         yFy/YaMWfbozSjvSdrHsf0TXtnO5qDO/l3x5ksfTgRSTqdQHnnSyDgl/+oFSXcErjUQC
+         UmmbEMMkt5FTVUh3/q2RhDpdPHloGV83CvYT7K9JSOTPhtmA8Jpy/qNTgbvZIcwUjl6x
+         y/dA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=from:mime-version:date:to:message-id:subject:dkim-signature;
+        bh=OyWFGNoR6cc6pw/+r8dbPccHPLyqkNOujn9TMcGt84U=;
+        b=vzPLelrJSZW9vC/VJVeOTO8OWxosWsWxMzNwzq1+d64jqC7FGGLYxctFEGbeHMESH5
+         6+dLPSJE/0fR6P6PH9MxpCgjD12Y0TvfH/jFiUDFmQFwImk67jF5Gwc+8fevrkVE8gXf
+         6ngBJFYYjAEXkFQNOHzO8ekqtG7Rkrnw3XBxNDUlWStPJWmFfL/BaVv2PYri/tnEtgSm
+         oxGfTaW2jPWvU7GbEWZcJDZHRyCdOJBlwg9FNPA7Yy8vD55lRaifcGjXJKt2MqMzdqig
+         1sERbCbZPcRV5Pz1tX2AUqZbmQfx20t2ptU+oBzhaK9Ki4AmFVP9trikz57ZceSOJdnZ
+         fegw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@notify.cloudflare.com header.s=scph0619 header.b=GJNeCFjT;
+       spf=pass (google.com: domain of msprvs1=18280xpxxqnzr=bounces-265094@sparkpostmail1.com designates 192.174.87.158 as permitted sender) smtp.mailfrom="msprvs1=18280xpxxqNZR=bounces-265094@sparkpostmail1.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=notify.cloudflare.com
+Return-Path: <msprvs1=18280xpxxqNZR=bounces-265094@sparkpostmail1.com>
+Received: from mta-87-158.sparkpostmail.com (mta-87-158.sparkpostmail.com. [192.174.87.158])
+        by mx.google.com with ESMTPS id b5si7956625plr.289.2020.01.11.20.33.32
+        for <bala@designed4cloud.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 11 Jan 2020 20:33:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of msprvs1=18280xpxxqnzr=bounces-265094@sparkpostmail1.com designates 192.174.87.158 as permitted sender) client-ip=192.174.87.158;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@notify.cloudflare.com header.s=scph0619 header.b=GJNeCFjT;
+       spf=pass (google.com: domain of msprvs1=18280xpxxqnzr=bounces-265094@sparkpostmail1.com designates 192.174.87.158 as permitted sender) smtp.mailfrom="msprvs1=18280xpxxqNZR=bounces-265094@sparkpostmail1.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=notify.cloudflare.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=notify.cloudflare.com; s=scph0619; t=1578803611;
+	i=@notify.cloudflare.com;
+	bh=OyWFGNoR6cc6pw/+r8dbPccHPLyqkNOujn9TMcGt84U=;
+	h=Subject:Message-ID:To:Date:Content-Type:From;
+	b=GJNeCFjT+pBZA8NoaZUZmHe4+s2i6lVJT3zeCQ3ub5PEXjcHs2saLuODnFtuJFqYT
+	 svJxZOlwMdaeK0NmH8hxLsJS6reaZ0LiRuwlRsvIYNJ6Mgk8R73gl98zlUiyALUTNz
+	 OH3GTTyqHDn9bnd3Sc0s148sk+RL1H1KO61SVp2s=
+X-MSFBL: NhZDhbOs7iYO3cwoOQbH19nAyTfymI6NO5anIF1sR0c=|eyJtZXNzYWdlX2lkIjo
+	iMDAyNzliYTExYTVlOWMyOWFlN2QiLCJ0ZW5hbnRfaWQiOiJzcGMiLCJjdXN0b21
+	lcl9pZCI6IjI2NTA5NCIsInN1YmFjY291bnRfaWQiOiIwIiwiciI6ImJhbGFAZGV
+	zaWduZWQ0Y2xvdWQuY29tIn0=
+Subject: [Cloudflare]: designed4cloud.co.nz has been added to a Cloudflare Free Plan
+Message-ID: <EA.D7.10652.B91AA1E5@am.mta1vrest.cc.prd.sparkpost>
+To: bala@designed4cloud.com
+Date: Sun, 12 Jan 2020 04:33:31 +0000
+Content-Type: multipart/alternative; boundary="_----YD4zRfBXDMSkwOv68KtMnw===_7C/59-14864-64A871E5"
+MIME-Version: 1.0
+From: "Cloudflare" <noreply@notify.cloudflare.com>
+
+--_----YD4zRfBXDMSkwOv68KtMnw===_7C/59-14864-64A871E5
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+
+Congratulations! You have successfully added the website designed4cloud.co.nz to Cloudflare. Cloudflare is a service that
+makes your website faster, safer, and smarter. To get the most out of our service, we recommend the following resources:
+
+RECOMMENDED STEPS: https://support.cloudflare.com/hc/en-us/articles/201897700
+
+ANALYTICS:  View reports on threats blocked and bandwidth saved at https://dash.cloudflare.com/analytics/designed4cloud.co.nz
+
+CLOUDFLARE STATUS: To get the most up-to-date status on Cloudflare's global network, check https://www.cloudflarestatus.com/
+
+HELP: Find answers to your questions or reach our help desk at https://support.cloudflare.com/
+
+SETTINGS: Check that your security and performance settings match your needs: https://dash.cloudflare.com/firewall/designed4cloud.co.nz/ip_firewall https://dash.cloudflare.com/performance/designed4cloud.co.nz
+
+FYI: Please note your name servers before Cloudflare:
+
+ns1.crazydomains.com
+ns2.crazydomains.com
+
+Your name servers on Cloudflare:
+
+anderson.ns.cloudflare.com
+ximena.ns.cloudflare.com
+
+Please follow us on our Social Media channels for the latest Cloudflare news at:
+Facebook: https://www.facebook.com/cloudflare
+Twitter: https://twitter.com/cloudflare
+Blog: https://blog.cloudflare.com/
+
+Thanks again for joining the Cloudflare community!
+The Cloudflare Team
+--_----YD4zRfBXDMSkwOv68KtMnw===_7C/59-14864-64A871E5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="UTF-8"
+
+<!doctype html>=0A<html xmlns=3D"=E2=80=9Chttp://www.w3.org/1999/xhtml=E2=
+=80=9D" xmlns:v=3D"=E2=80=9Curn:schemas-microsoft-com:vml=E2=80=9D" xmlns:o=
+=3D"=E2=80=9Curn:schemas-microsoft-com:office:office=E2=80=9D">=0A<head> =
+=0A<meta charset=3D"utf-8"> =0A<meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"> =0A<!--[if gte mso 9]><xml>=0A<o:OfficeDocumentSettings>=0A=
+<o:AllowPNG/>=0A<o:PixelsPerInch>96</o:PixelsPerInch>=0A</o:OfficeDocumentS=
+ettings>=0A</xml><![endif]--> =0A<!--Variables-->                       =0A=
+<title></title> =0A<link href=3D"https://fonts.googleapis.com/css=3Ffamily=
+=3DOpen+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel=3D"styleshee=
+t"> =0A<style>=0A      /* CLIENT-SPECIFIC STYLES */=0A      img{-ms-interpo=
+lation-mode: bicubic;} =0A      /* Force IE to smoothly render resized imag=
+es. */=0A      #outlook a{padding:0;} =0A      /* Force Outlook 2007 and up=
+ to provide a "view in browser" message. */=0A      table{mso-table-lspace:=
+0pt;mso-table-rspace:0pt;} =0A      /* Remove spacing between tables in Out=
+look 2007 and up. */=0A      .ReadMsgBody{width:100%;} =0A      .ExternalCl=
+ass{width:100%;} =0A      /* Force Outlook.com to display emails at full wi=
+dth. */=0A      p, a, li, td, blockquote{mso-line-height-rule:exactly;} =0A=
+      /* Force Outlook to render line heights as they're originally set. */=
+=0A      a[href^=3D"tel"], a[href^=3D"sms"]{color:inherit;cursor:default; t=
+ext-decoration:none;} =0A      /* Force mobile devices to inherit declared =
+link styles. */=0A      p, a, li, td, body, table, blockquote{-ms-text-size=
+-adjust:100%;-webkit-text-size-adjust:100%;} =0A      /* Prevent Windows- a=
+nd Webkit-based mobile platforms from changing declared text sizes. */=0A  =
+    .ExternalClass, .ExternalClass p, .ExternalClass td, .ExternalClass div=
+, .ExternalClass span, .ExternalClass font{line-height:100%;}=0A      /* Fo=
+rce Outlook.com to display line heights normally. */=0A      table{border-c=
+ollapse:collapse;}=0A=0A      html {=0A        -webkit-text-size-adjust: no=
+ne;=0A      }=0A=0A      #gmailModule,=0A      .mobileOnly{ display:none !i=
+mportant; }=0A      /*Hide Full-Width Image on Desktop*/=0A=0A      a, a:ho=
+ver{ =0A        color: #f5821f !important;=0A        text-decoration:none !=
+important;=0A      }=0A=0A      .button a, =0A      .button a:hover{ =0A   =
+     color:#ffffff !important; =0A        text-decoration:none !important;=
+=0A      }=0A=0A      .footer a, =0A      .footer a:hover{ =0A        color=
+:#8f8f8f !important; =0A        text-decoration:none !important;=0A      }=
+=0A=0A      a[x-apple-data-detectors] {=0A        color: inherit !important=
+;=0A        text-decoration: none !important;=0A        font-size: inherit =
+!important;=0A        font-family: inherit !important;=0A        font-weigh=
+t: inherit !important;=0A        line-height: inherit !important;=0A      }=
+=0A=0A      @media only screen and (max-width:650px){=0A        #bodyTable{=
+ width:100% !important; }=0A        =0A=0A        img{=0A          width:au=
+to !important;=0A          max-width:100% !important;=0A          height:au=
+to !important;=0A        }=0A        .tableStack{ width:100% !important; }=
+=0A        table.buttonStack { margin-top: 10px !important; }=0A        td.=
+buttonStack { padding-top: 16px !important; }=0A=0A        table.mobileImag=
+eWidth { width:28% !important;}=0A        table.mobileTextWidth { width:68%=
+ !important;}=0A        =0A        .stack{=0A          padding-top: 10px !i=
+mportant;=0A          padding-right:5% !important;=0A          padding-bott=
+om: 10px !important;=0A          padding-left:5% !important;=0A          wi=
+dth:90% !important;=0A        }=0A        td.mobileTopPad{ padding-top: 20p=
+x !important; }=0A        table.mobileTopPad{ margin-top: 20px !important; =
+}=0A=0A        .desktopPad,=0A        #gmailModule{=0A          display:non=
+e !important;=0A        }=0A        .center img{=0A          margin-left:au=
+to !important;=0A          margin-right:auto !important;=0A        }=0A    =
+    .center table{=0A          margin-right:auto;=0A          margin-left:a=
+uto;=0A        }=0A        .center{ =0A          text-align:center !importa=
+nt;=0A        }=0A        .noPad{=0A          padding-top:0px !important;=
+=0A          padding-right:0px !important;=0A          padding-bottom:0px !=
+important;=0A          padding-left:0px !important;=0A        }=0A        .=
+noSidePad{=0A          padding-right:0px !important;=0A          padding-le=
+ft:0px !important;=0A        }=0A        .noBorder{ border:0px !important; =
+}=0A        hr{=0A          margin-right:auto !important;=0A          margi=
+n-left:auto !important;=0A        }=0A        .mobileOnly{ display:block !i=
+mportant; }=0A      }=0A    </style> =0A<!--[if gte mso 9]>=0A<style type=
+=3D"text/css">=0Atd, p, ul, ol, li { =0Afont-family:Arial, sans-serif !impo=
+rtant; =0A}=0Aul, ol {=0Amargin: 0px 0px 0px 26px !important;=0Apadding: 0p=
+x !important;=0Alist-style-position: inside !important;=0A}=0Atable.outlook=
+PadColumn{=0Awidth:34% !important;=0Apadding-right:2% !important;=0A}=0Atd.=
+outlookFloat{margin-left:40px;padding-right:0px !important;}=0A</style>=0A<=
+![endif]--> =0A</head> =0A<body bgcolor=3D"#f6f6f6" style=3D"background:#f6=
+f6f6;margin:0;padding:0;mso-padding-alt: 0px 0px 0px 0px;"> =0A<table role=
+=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"background:#f6f6f6;mso-padding-alt: 0px 0px 0px 0px;"> =0A<=
+tbody>=0A<tr> =0A<td> =0A<!--Body Table--> =0A<table role=3D"presentation" =
+id=3D"bodyTable" width=3D"650" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"margin-left:auto;margin-right:auto;"> =0A<=
+!--Preheader Container--> =0A<tbody> =0A<!--/Preheader Container--> =0A<tr>=
+ =0A<td> =0A<table role=3D"presentation" id=3D"container" class=3D"mktoCont=
+ainer" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-collapse:collapse;">=0A<tr>=0A<td> =0A<!--Logo--> =0A<table rol=
+e=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<=
+table role=3D"presentation" width=3D"650" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" style=3D"width:650px;">=0A<![endif]--> =0A<tbody> =0A<tr st=
+yle=3D"white-space:nowrap; background-color:#ffffff;"> =0A<td class=3D"stac=
+k" style=3D"border-top:10px solid #f5821f;white-space:normal;padding-top:25=
+px;padding-left:40px;padding-bottom:25px;padding-right:40px; background-col=
+or:#ffffff;"> =0A<!--Left--> =0A<table class=3D"tableStack" role=3D"present=
+ation" width=3D"48%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"left"> =0A<tbody> =0A<tr> =0A<td class=3D"stack"> =0A<table role=3D"pre=
+sentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">=
+ =0A<tbody> =0A<tr> =0A<td class=3D"center"><a href=3D"https://www.cloudfla=
+re.com/=3Futm_medium=3Demail&utm_source=3Dtransactional&utm_campaign=3Dca-c=
+onfirmed-free"><img src=3D"http://info.cloudflare.com/rs/713-XSC-918/images=
+/logo_fullcolor_1168x168.png" alt=3D"Cloudflare" height=3D"" width=3D"260" =
+style=3D"border-style: none;"></a></td> =0A</tr> =0A</tbody> =0A</table> =
+=0A</td>=0A</tr> =0A</tbody> =0A</table> =0A<!--/Left--> =0A<!--Right--> =
+=0A<table class=3D"tableStack" role=3D"presentation" width=3D"48%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"right"> =0A<tbody> =0A<=
+tr> =0A<td class=3D"center" style=3D"text-align:right;color:#333333;font-fa=
+mily: Open Sans, Helvetica, Arial, sans-serif; font-size:14px;line-height:2=
+0px;"> =0A</td> =0A</tr> =0A</tbody> =0A</table> =0A<!--/Right--> </td> =0A=
+</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A<=
+/tbody> =0A</table> =0A<!--/Logo--> </td> =0A</tr>=0A<tr class=3D"mktoModul=
+e desktopPad">=0A<td> =0A<!--Spacer--> =0A<table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A=
+<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"6=
+50" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;"=
+>=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; background-=
+color:#ffffff;"> =0A<td class=3D"desktopPad" height=3D"25" style=3D"backgro=
+und-color:#ffffff; line-height:25px;font-size:25px;"> =C2=A0 </td> =0A</tr>=
+ =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbod=
+y> =0A</table> =0A<!--/Spacer--> </td> =0A</tr>=0A<tr>=0A<td> =0A<!--Title =
+Text--> =0A<table role=3D"presentation" width=3D"100%" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!--[if gte mso =
+9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"650" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=0A<![endif]-->=
+ =0A<tbody> =0A<tr style=3D"white-space:nowrap; background-color:#ffffff;">=
+ =0A<td class=3D"stack" style=3D"font-weight:lighter;color:#333333;text-ali=
+gn:left;white-space:normal;font-family: Open Sans, Helvetica, Arial, sans-s=
+erif; font-size:24px; line-height:32px; padding-left:40px; padding-right:40=
+px; background-color:#ffffff;"> =0A<span style=3D"font-size: 42px;">Status =
+Active<br></span> =0A</td>=0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td=
+>=0A</tr>=0A<![endif]--> =0A</tbody> =0A</table> =0A<!--/Title Text--> </td=
+> =0A</tr>=0A<tr>=0A<td> =0A<!--Persistent Spacer--> =0A<table role=3D"pres=
+entation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" s=
+tyle=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table rol=
+e=3D"presentation" width=3D"650" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"width:650px;">=0A<![endif]--> =0A<tbody> =0A<tr style=3D"wh=
+ite-space:nowrap; background-color:#ffffff;"> =0A<td height=3D"25" style=3D=
+"white-space:normal;background-color:#ffffff; line-height:25px;font-size:25=
+px;"> =C2=A0 </td> =0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</t=
+r>=0A<![endif]--> =0A</tbody> =0A</table> =0A<!--/Persistent Spacer--> </td=
+> =0A</tr>=0A<tr>=0A<td> =0A<!--Banner Image--> =0A<table role=3D"presentat=
+ion" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D=
+"presentation" width=3D"650" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"width:650px;">=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-=
+space:nowrap; background-color:#ffffff;"> =0A<td align=3D"center" style=3D"=
+background-color:#ffffff;">  =0A<img src=3D"https://gallery.mailchimp.com/d=
+80d4d74266c0c044b0bcd7ca/images/26c3c014-d115-4359-9b25-a3bbd22963cc.png" w=
+idth=3D"585" style=3D"display:block;" border=3D"0" alt=3D"Create Account > =
+Add Account > Select Plan > Update Nameservers > (STATUS: ACTIVE)"> =0A</td=
+>=0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =
+=0A</tbody> =0A</table> =0A<!--/Banner Image--> </td> =0A</tr>=0A<tr>=0A<td=
+> =0A<!--Persistent Spacer--> =0A<table role=3D"presentation" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;=
+"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" widt=
+h=3D"650" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:6=
+50px;">=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; backg=
+round-color:#ffffff;"> =0A<td height=3D"25" style=3D"white-space:normal;bac=
+kground-color:#ffffff; line-height:25px;font-size:25px;"> =C2=A0 </td> =0A<=
+/tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</=
+tbody> =0A</table> =0A<!--/Persistent Spacer--> </td> =0A</tr>=0A<tr>=0A<td=
+> =0A<!--Full Text--> =0A<table role=3D"presentation" width=3D"100%" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!=
+--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"650=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=
+=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; background-c=
+olor:#ffffff;"> =0A<td class=3D"stack" style=3D"color:#333333;text-align:le=
+ft;white-space:normal;font-family: Open Sans, Helvetica, Arial, sans-serif;=
+ font-size:14px;line-height:20px; padding-left:40px; padding-right:40px; ba=
+ckground-color:#ffffff; font-weight:lighter;"> =0ACongratulations! You have=
+ successfully activated designed4cloud.co.nz. Your site will now receive th=
+e benefits of Cloudflare=E2=80=99s performance, security and reliability fe=
+atures. Check out reports of bandwidth saved* and threats blocked on your a=
+ccount =0A<a href=3D"https://www.cloudflare.com/a/analytics/designed4cloud.=
+co.nz/requests=3Futm_medium=3Demail&utm_source=3Dtransactional&utm_campaign=
+=3Dca-confirmed-free" target=3D"_blank" style=3D"text-decoration: none; col=
+or: #f38020;">Analytics</a> page.=0A<br> =0A<br>Visit our =0A<a href=3D"htt=
+ps://www.cloudflare.com/welcome-free/=3Futm_medium=3Demail&utm_source=3Dtra=
+nsactional&utm_campaign=3Dca-confirmed-free" target=3D"_blank" style=3D"tex=
+t-decoration: none; color: #f38020;">Welcome Center</a> for helpful resourc=
+es for new customers. Also, check out the <a href=3D"https://www.cloudflare=
+status.com/=3Futm_medium=3Demail&utm_source=3Dtransactional&utm_campaign=3D=
+ca-confirmed-free" target=3D"_blank" style=3D"text-decoration: none; color:=
+ #f38020;">Cloudflare Status Page</a> and our <a href=3D"https://blog.cloud=
+flare.com/subscribe/" target=3D"_blank" style=3D"text-decoration: none; col=
+or: #f38020;">Blog</a> for real time updates and news. =0A<br> =0A<br>For c=
+ommon questions or to reach our Support team, visit https://support.cloudfl=
+are.com/. =0A<br> =0A<br>Thank you, =0A<br>The Cloudflare Team =0A<br> =0A<=
+br>For your records, this is a confirmation of your nameserver change befor=
+e Cloudflare and on Cloudflare: =0A<br> =0A</td>=0A</tr> =0A<!--[if gte mso=
+ 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbody> =0A</table> =0A<=
+!--/Full Text--> </td> =0A</tr>=0A<tr class=3D"mktoModule desktopPad">=0A<t=
+d> =0A<!--Spacer--> =0A<table role=3D"presentation" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=
+=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"650" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=0A<![endif]--> =
+=0A<tbody> =0A<tr style=3D"white-space:nowrap; background-color:#ffffff;"> =
+=0A<td class=3D"desktopPad" height=3D"25" style=3D"background-color:#ffffff=
+; line-height:25px;font-size:25px;"> =C2=A0 </td> =0A</tr> =0A<!--[if gte m=
+so 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbody> =0A</table> =
+=0A<!--/Spacer--> </td> =0A</tr>=0A<tr>=0A<td> =0A<!--Left IB Right T--> =
+=0A<table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=0A<t=
+r>=0A<td>=0A<table role=3D"presentation" width=3D"650" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=0A<![endif]--> =0A<tbo=
+dy> =0A<tr style=3D"white-space:nowrap; background-color:#ffffff;"> =0A<td =
+class=3D"stack" style=3D"white-space:normal;background-color:#ffffff;paddin=
+g-right:40px;padding-left:40px;"> =0A<!--Left--> =0A<table role=3D"presenta=
+tion" class=3D"tableStack" width=3D"48%" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" align=3D"left"> =0A<tbody> =0A<tr> =0A<td style=3D"color:#33=
+3333;text-align:left;white-space:normal;font-family: Open Sans, Helvetica, =
+Arial, sans-serif; font-size:14px;line-height:20px;font-weight:lighter; bac=
+kground-color: #f3f3f3; padding: 10px 0px;" class=3D"center"> =0A<div style=
+=3D"margin-bottom: 7px; text-align: center;"> =0A<strong>Before:</strong><b=
+r>=0Ans1.crazydomains.com=0Ans2.crazydomains.com<br>=0A</div>=0A</td>=0A</t=
+r> =0A</tbody> =0A</table> =0A<!--/Left--> =0A<!--Right--> =0A<table role=
+=3D"presentation" class=3D"tableStack mobileTopPad" width=3D"48%" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"right"> =0A<tbody> =0A<tr>=
+ =0A<td> =0A<table role=3D"presentation" width=3D"100%" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0"> =0A<tbody> =0A<tr> =0A<td style=3D"color:#33=
+3333;text-align:left;white-space:normal;font-family: Open Sans, Helvetica, =
+Arial, sans-serif; font-size:14px;line-height:20px;font-weight:lighter; bac=
+kground-color: #f3f3f3; padding: 10px 0px;"> =0A<div style=3D"margin-bottom=
+: 7px; text-align: center;"> =0A<strong>Current:</strong><br>=0Aanderson.ns=
+.cloudflare.com<br>=0Aximena.ns.cloudflare.com=0A</div> =0A</td>=0A</tr> =
+=0A</tbody> =0A</table> </td> =0A</tr> =0A</tbody> =0A</table> =0A<!--/Righ=
+t--> </td> =0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![=
+endif]--> =0A</tbody> =0A</table> =0A<!--/Left IB Right T--> </td> =0A</tr>=
+=0A<tr class=3D"mktoModule desktopPad">=0A<td> =0A<!--Spacer--> =0A<table r=
+ole=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D=
+"presentation" width=3D"650" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"width:650px;">=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-=
+space:nowrap; background-color:#ffffff;"> =0A<td class=3D"desktopPad" heigh=
+t=3D"25" style=3D"background-color:#ffffff; line-height:25px;font-size:25px=
+;"> =C2=A0 </td> =0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=
+=0A<![endif]--> =0A</tbody> =0A</table> =0A<!--/Spacer--> </td> =0A</tr>=0A=
+<tr>=0A<td> =0A<!--Full Text--> =0A<table role=3D"presentation" width=3D"10=
+0%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100=
+%;"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" wi=
+dth=3D"650" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width=
+:650px;">=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; bac=
+kground-color:#ffffff;"> =0A<td class=3D"stack" style=3D"color:#333333;text=
+-align:left;white-space:normal;font-family: Open Sans, Helvetica, Arial, sa=
+ns-serif; font-size:12px;line-height:20px; padding-left:40px; padding-right=
+:40px; background-color:#ffffff; font-weight:lighter;"> =0A*Please allow 15=
+ minutes for the data to populate your reports. =0A<br> =0A</td>=0A</tr> =
+=0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbody=
+> =0A</table> =0A<!--/Full Text--> </td> =0A</tr>=0A<tr class=3D"mktoModule=
+ desktopPad">=0A<td> =0A<!--Spacer--> =0A<table role=3D"presentation" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<=
+!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"65=
+0" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=
+=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; background-c=
+olor:#ffffff;"> =0A<td class=3D"desktopPad" height=3D"25" style=3D"backgrou=
+nd-color:#ffffff; line-height:25px;font-size:25px;"> =C2=A0 </td> =0A</tr> =
+=0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbody=
+> =0A</table> =0A<!--/Spacer--> </td> =0A</tr>=0A<tr>=0A<td> =0A<!--Persist=
+ent Spacer--> =0A<table role=3D"presentation" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!--[if gt=
+e mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"650" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=0A<![end=
+if]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; background-color:#fff=
+fff;"> =0A<td height=3D"25" style=3D"white-space:normal;background-color:#f=
+fffff; line-height:25px;font-size:25px;"> =C2=A0 </td> =0A</tr> =0A<!--[if =
+gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbody> =0A</tabl=
+e> =0A<!--/Persistent Spacer--> </td> =0A</tr>=0A<tr>=0A<td> =0A<!--Persist=
+ent Spacer--> =0A<table role=3D"presentation" width=3D"100%" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!--[if gt=
+e mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"650" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=0A<![end=
+if]--> =0A<tbody> =0A<tr style=3D"white-space:nowrap; background-color:#F6F=
+6F6;"> =0A<td height=3D"25" style=3D"white-space:normal;background-color:#F=
+6F6F6; line-height:25px;font-size:25px;"> =C2=A0 </td> =0A</tr> =0A<!--[if =
+gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]--> =0A</tbody> =0A</tabl=
+e> =0A<!--/Persistent Spacer--> </td> =0A</tr>=0A<tr>=0A<td> =0A<!--Footer-=
+-> =0A<table role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<!--[if gte mso 9]>=
+=0A<tr>=0A<td>=0A<table role=3D"presentation" width=3D"650" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" style=3D"width:650px;">=0A<![endif]--> =
+=0A<tbody> =0A<tr style=3D"white-space:nowrap;"> =0A<td class=3D"stack" sty=
+le=3D"white-space:normal; padding-left:40px;padding-right:40px;"> =0A<table=
+ role=3D"presentation" width=3D"100%" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0"> =0A<tbody> =0A<tr> =0A<td class=3D"footer" style=3D"font-famil=
+y: Arial,Helvetica,sans-serif; color: #8f8f8f; font-size: 13px; text-align:=
+ center;">Copyright =C2=A9=C2=A02019=C2=A0Cloudflare, Inc.<br> 101 Townsend=
+ Street, San Francisco, CA 94107<br><br> <a href=3D"https://www.cloudflare.=
+com/=3Futm_medium=3Demail&utm_source=3Dtransactional&utm_campaign=3Dca-conf=
+irmed-free" style=3D"color: #8f8f8f; text-decoration: none;">www.cloudflare=
+.com</a> =C2=A0|=C2=A0 <a href=3D"https://community.cloudflare.com/" style=
+=3D"color: #8f8f8f; text-decoration: none;">Community</a> =C2=A0|=C2=A0 <a =
+href=3D"https://support.cloudflare.com/hc/en-us=3Futm_medium=3Demail&utm_so=
+urce=3Dtransactional&utm_campaign=3Dca-confirmed-free" style=3D"color: #8f8=
+f8f; text-decoration: none;">Support</a></td> =0A</tr> =0A<tr> =0A<td style=
+=3D"padding-top: 30px;" align=3D"center"> =0A<table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" stlye=3D"margin-right:auto;=
+margin-left:auto;" align=3D"center"> =0A<tbody> =0A<tr> =0A<td width=3D"40"=
+ align=3D"center" style=3D"padding-right: 2px; padding-left: 2px;"><a href=
+=3D"https://www.facebook.com/Cloudflare/" title=3D"Facebook"><img src=3D"ht=
+tps://info.cloudflare.com/rs/713-XSC-918/images/social-icon-fb-email-108px.=
+png" width=3D"36" height=3D"36" alt=3D"Facebook" style=3D"display: block; m=
+argin-right: auto; margin-left: auto; border-style: none;" constrain=3D"tru=
+e" imagepreview=3D"false"></a></td> =0A<td width=3D"40" align=3D"center" st=
+yle=3D"padding-right: 2px; padding-left: 2px;"><a href=3D"https://twitter.c=
+om/Cloudflare" title=3D"Twitter"><img src=3D"https://info.cloudflare.com/rs=
+/713-XSC-918/images/social-icon-twitter-email-108px.png" width=3D"36" heigh=
+t=3D"36" alt=3D"Twitter" style=3D"display: block; margin-right: auto; margi=
+n-left: auto; border-style: none;" constrain=3D"true" imagepreview=3D"false=
+"></a></td> =0A<td width=3D"40" align=3D"center" style=3D"padding-right: 2p=
+x; padding-left: 2px;"><a href=3D"https://www.linkedin.com/company/cloudfla=
+re-inc-" title=3D"LinkedIn"><img src=3D"https://info.cloudflare.com/rs/713-=
+XSC-918/images/social-icon-linkedin-email-108px.png" width=3D"36" height=3D=
+"36" alt=3D"LinkedIn" style=3D"display: block; margin-right: auto; margin-l=
+eft: auto; border-style: none;" constrain=3D"true" imagepreview=3D"false"><=
+/a></td> =0A</tr> =0A</tbody> =0A</table> </td> =0A</tr> =0A</tbody> =0A</t=
+able>=0A</td>=0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<=
+![endif]--> =0A</tbody> =0A</table> =0A<!--/Footer--> </td> =0A</tr>=0A<tr>=
+=0A<td> =0A<!--Persistent Spacer--> =0A<table role=3D"presentation" width=
+=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"min-wid=
+th:100%;"> =0A<!--[if gte mso 9]>=0A<tr>=0A<td>=0A<table role=3D"presentati=
+on" width=3D"650" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"width:650px;">=0A<![endif]--> =0A<tbody> =0A<tr style=3D"white-space:nowra=
+p; background-color:#F6F6F6;"> =0A<td height=3D"25" style=3D"white-space:no=
+rmal;background-color:#F6F6F6; line-height:25px;font-size:25px;"> =C2=A0 </=
+td> =0A</tr> =0A<!--[if gte mso 9]>=0A</table>=0A</td>=0A</tr>=0A<![endif]-=
+-> =0A</tbody> =0A</table> =0A<!--/Persistent Spacer--> </td> =0A</tr>=0A</=
+table> </td> =0A</tr> =0A<!--/Container--> =0A<!--Full Width Image for Gmai=
+l to render desktop version on mobile--> =0A<tr> =0A<td> =0A<table role=3D"=
+presentation" class=3D"hide" id=3D"gmailModule" width=3D"100%" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;"> =0A<tbody>=
+=0A<tr style=3D"white-space:nowrap; background-color:#ffffff"> =0A<td heigh=
+t=3D"1" class=3D"hide" style=3D"min-width:650px;opacity:0; font-size:0px;li=
+ne-height:0px;"> <img height=3D"1" src=3D"#" style=3D"min-width: 650px;max-=
+height:0px; text-decoration: none; border: none; -ms-interpolation-mode: bi=
+cubic;"> </td> =0A</tr> =0A</tbody>=0A</table> </td> =0A</tr> =0A<!--/Full =
+Width Image for Gmail to render desktop version on mobile--> =0A</tbody>=0A=
+</table> =0A<!--End Body Table--> </td> =0A</tr> =0A</tbody>=0A</table>  =
+=0A</body>=0A
+--_----YD4zRfBXDMSkwOv68KtMnw===_7C/59-14864-64A871E5--
+

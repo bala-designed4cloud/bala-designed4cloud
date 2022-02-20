@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSite : CDN</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">WebSite</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="WebSite_163842.html">WebSite</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            WebSite : CDN
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Kanesamoorthy Balakumar</span>, last modified on Jan 12, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="CDN-Introduction">Introduction</h1><h1 id="CDN-DesignIntents">Design Intents</h1><ul><li><p>Reduce Egress cost by caching at the edge</p></li><li><p>Provide basic DDoS protection</p></li><li><p>WAF is optional</p></li></ul><h1 id="CDN-DesignDecisions">Design Decisions</h1><ul><li><p>Use the basic Cloudflare offering as it provides caching and basic DDoS</p></li><li><p>WAF is optional, so it’s been decided to stick with the basic offering</p></li></ul><h1 id="CDN-Implementation">Implementation</h1><h2 id="CDN-CreateCloudflareaccount">Create Cloudflare account</h2><ul><li><p>Used <a href="mailto:bala@designed4cloud.com" class="external-link" rel="nofollow">bala@designed4cloud.com</a> as the mail email</p></li></ul><h2 id="CDN-AddanewSite(.com)andconfigureDNS">Add a new Site (.com) and configure DNS</h2><ul><li><p>Added <a href="http://designed4cloud.com" class="external-link" rel="nofollow">designed4cloud.com</a> as a new site</p></li><li><p>Removed the following DNS from enom account.</p><ul><li><p><code>dns1.name-services.com</code></p></li><li><p><code>dns2.name-services.com</code></p></li><li><p><code>dns3.name-services.com</code></p></li><li><p><code>dns4.name-services.com</code></p></li><li><p><code>dns5.name-services.com</code></p></li></ul></li><li><p>Added the following DNS to enom account.</p><ul><li><p><code>anderson.ns.cloudflare.com</code></p></li><li><p><code>ximena.ns.cloudflare.com</code></p></li></ul></li><li><p>Click on check nameservers in CloudFlare </p></li></ul><h2 id="CDN-AddanewSite(.co.nz)andconfigureDNS">Add a new Site (.co.nz) and configure DNS</h2><ul><li><p>Added <a href="http://designed4cloud.co.nz" class="external-link" rel="nofollow">designed4cloud.co.nz</a> as a new site</p></li><li><p>Removed the following DNS from enom account.</p><ul><li><p><code>ns1.crazydomains.com</code></p></li><li><p><code>ns2.crazydomains.com</code></p></li></ul></li><li><p>Added the following DNS to crazydomains account.</p><ul><li><p><code>anderson.ns.cloudflare.com</code></p></li><li><p><code>ximena.ns.cloudflare.com</code></p></li></ul></li><li><p>Click on check nameservers in CloudFlare</p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/32965.png">mobile_activity_screen.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/32971.png">mobile_login_screen.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/32976.jpg">design_feedback.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/32981.jpg">cake.jpg</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/32986.png">pie.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/229384.eml">[Cloudflare]_ designed4cloud.com has been added to a Cloudflare Free Plan.eml</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/32958/65566.eml">[Cloudflare]_ designed4cloud.co.nz has been added to a Cloudflare Free Plan.eml</a> (application/octet-stream)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Feb 20, 2022 11:20</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
